@@ -1,0 +1,53 @@
+<div class="bg">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="register-form">
+        <h2 class="text-center mb-4">Register</h2>
+        <form #myForm="ngForm">
+          <div class="form-group field">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" #names="ngModel" name="name" required [(ngModel)]="name">
+            <div class="text-danger" *ngIf="(names.touched||myForm.submitted)&&names.errors?.['required']">
+              Name is required
+            </div>
+          </div>
+
+          <div class="form-group field">
+            <label for="phnum">Phone Number:</label>
+            <input type="number" class="form-control" #phnums="ngModel" name="phnum" required [(ngModel)]="phnum">
+            <div class="text-danger" *ngIf="(phnums.touched||myForm.submitted)&&phnums.errors?.['required']">
+              Number is required
+            </div>
+          </div>
+
+          <div class="form-group field">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" #emails="ngModel" name="email" email required [(ngModel)]="email">
+            <div class="text-danger" *ngIf="(emails.touched||myForm.submitted)&&emails.errors?.['required']">
+              Email is required.
+            </div>
+            <div class="text-danger" *ngIf="(emails.touched||myForm.submitted)&&emails.errors?.['email']">
+              Please enter a valid email.
+            </div>
+          </div>
+
+          <div class="form-group field">
+            <label for="gender">Gender:</label>
+            <select class="form-control" #genders="ngModel" required name="gender" required [(ngModel)]="gender">
+              <option value="" disabled selected>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="text-danger" *ngIf="(genders.touched||myForm.submitted)&&genders.errors?.['required']">
+              Gender is required
+            </div>
+          </div>
+
+          <button type="submit" (click)="onSubmit(myForm)" class="btn btn-primary"
+            [disabled]="!myForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

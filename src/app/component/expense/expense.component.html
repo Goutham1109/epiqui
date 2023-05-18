@@ -1,0 +1,43 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+<app-nav-bar [navbarBackgroundColor]="navbarBackgroundColor"></app-nav-bar>
+
+<div class="container">
+  <div class="header">Expenses</div>
+  <div class="btn btn-primary" (click)="addExp()">Add new Expense</div>
+  <table
+    class="table table-bordered table-striped table-responsive table-responsive-sm table-responsive-lg"
+  >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let d of data">
+      <tr>
+        <th scope="row">1</th>
+        <td>{{ d.name }}</td>
+        <td>{{ d.age }}</td>
+        <td>{{ d.mail }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="edit(d.name)">edit</button>
+        </td>
+      </tr>
+      <!-- <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>
+<!-- add colored table rows based on saving and expenditure -->
